@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Auth from './components/Auth';
+import Auth from '../../components/auth/Auth';
 // import CameraTable from './components/CameraChecker';
-import './App.css';
+import './auth.module.css';
 
-function App() {
+function Authorization() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState({ username: '', password: '' });
 
@@ -21,7 +21,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="Auth">
       {isAuthenticated ? (
         <div>
           <div className="user-header">
@@ -39,4 +39,4 @@ function App() {
   );
 }
 
-export default App;
+export default Authorization;

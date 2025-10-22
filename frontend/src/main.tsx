@@ -6,7 +6,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./normalize.css";
-import App from "./App";
+import Authorization from "./pages/auth/auth";
+
 
 const router = createBrowserRouter([
   {
@@ -14,8 +15,8 @@ const router = createBrowserRouter([
     element: <Navigate to="/cameras" replace />
   },
   {
-    path: "/cameras",
-    element: <App />,
+    path: "/auth",
+    element: < Authorization/>,
   },
 ]);
 createRoot(document.getElementById("root")!).render(
