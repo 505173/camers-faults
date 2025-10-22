@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './CameraChecker.module.css'; // Убедитесь что имя файла совпадает!
+import styles from './CameraChecker.module.css'; 
 
 interface Camera {
   id: number;
@@ -8,7 +8,7 @@ interface Camera {
   status: 'online' | 'offline' | 'recording';
 }
 
-const CameraChecker: React.FC = () => { // Изменил имя компонента на CameraChecker
+const CameraChecker: React.FC = () => { 
   const [cameras] = useState<Camera[]>([
     {
       id: 1,
