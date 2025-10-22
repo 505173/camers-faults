@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum CameraStatus {
+  WORKS
+  DOESNT_WORK
+  WORKS_INTERMITTENTLY
+}
+
+model Camera {
+  id       String       @id @default(uuid())
+  name     String
+  ip       String       @unique
+  location String
+  status   CameraStatus
+
+  checkResults CheckResult[]
+}
+
+model CheckResult {
+  id        String   @id @default(uuid())
+  cameraId  String
+  camera    Camera   @relation(fields: [cameraId], references: [id], onDelete: Cascade)
+  timestamp DateTime @default(now())
+  avgRttsMs Float
+  jitterMs  Float
+  lossPct   Float
+  errors    String[]
+}
+
+model User {
+  id             String @id @default(uuid())
+  tgUsername     String @unique
+  hashedPassword String
+}
