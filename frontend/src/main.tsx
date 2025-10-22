@@ -6,20 +6,17 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./normalize.css";
+import App from "./App";
 
 const router = createBrowserRouter([
-  // {
-  //   path: "/",
-  //   element: <Navigate to="/cameras" replace />
-  // },
-  // {
-  //   path: "/cameras",
-  //   element: <Cameras />,
-  // },
-  // {
-  //   path: "/camera/:id",
-  //   element: ,
-  // },
+  {
+    path: "/",
+    element: <Navigate to="/cameras" replace />
+  },
+  {
+    path: "/cameras",
+    element: <App />,
+  },
 ]);
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
