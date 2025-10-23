@@ -1,0 +1,140 @@
+.cameraTableContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.cameraTableHeader {
+  margin-bottom: 20px;
+}
+
+.cameraTableHeader h1 {
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.cameraTable {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid black; 
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 2fr 2fr 3fr 1.5fr;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 16px;
+  font-weight: bold;
+  color: #666;
+  text-transform: lowercase;
+}
+
+.headerCell {
+  padding: 10px;
+}
+
+.tableBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 2fr 2fr 3fr 1.5fr;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.tableRow:hover {
+  background-color: #f9f9f9;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableCell {
+  padding: 8px;
+  color: #808080;
+}
+
+.statusCell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.statusIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+
+
+.detailsButton {
+  padding: 12px 24px;
+  background-color: #0000FF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 160px;
+}
+
+.detailsButton:hover {
+  background-color: #0000d6;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 255, 0.3);
+}
+
+.detailsButton:active {
+  transform: translateY(0);
+}
+
+.filterContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.filterSelect {
+  padding: 10px 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  min-width: 200px;
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: #0000FF;
+  background-color: white;
+}
+
+.cameraTableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cameraTableHeader h1 {
+  margin: 0;
+}

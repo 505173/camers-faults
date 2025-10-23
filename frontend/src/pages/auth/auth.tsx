@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Auth from '../../components/auth/Auth';
-// import CameraTable from './components/CameraChecker';
 import './auth.module.css';
 
 function Authorization() {
@@ -15,10 +14,7 @@ function Authorization() {
     setIsAuthenticated(true);
   };
 
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-    setUser({ username: '', password: '' });
-  };
+
 
   return (
     <div className="Auth">
@@ -26,11 +22,8 @@ function Authorization() {
         <div>
           <div className="user-header">
             <span>Пользователь: {user.username}</span>
-            <button onClick={handleLogout} className="logout-button">
-              Выйти
-            </button>
           </div>
-          {/* <CameraTable /> */}
+        
         </div>
       ) : (
         <Auth onLogin={handleLogin} />

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Auth.module.css';
 
 interface AuthProps {
@@ -9,6 +10,7 @@ const Auth: React.FC<AuthProps> = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,6 +27,7 @@ const Auth: React.FC<AuthProps> = ({ onLogin }) => {
 
     setError('');
     onLogin(username, password);
+    navigate("/check", { replace: true }); // Переход на страницу check
   };
 
   return (

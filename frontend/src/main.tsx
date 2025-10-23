@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import "./normalize.css";
 import Authorization from "./pages/auth/auth";
+import Card from "./pages/card/card";
+import Check from "./pages/check/check";
 
 
 const router = createBrowserRouter([
@@ -17,6 +19,14 @@ const router = createBrowserRouter([
   {
     path: "/auth",
     element: < Authorization/>,
+  },
+   {
+    path: "/card",
+    element: < Card/>,
+  },
+  {
+    path: "/check",
+    element: < Check/>,
   },
 ]);
 createRoot(document.getElementById("root")!).render(
