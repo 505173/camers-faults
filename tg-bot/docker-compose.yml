@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  tg-bot:
+    build:
+      context: ./bot
+    container_name: tg-bot
+    restart: always
+    environment:
+      BOT_TOKEN: "8447543815:AAGkwtyTfqMGNjoYgKqOIaUtqnf-DuCCp2Y"
+    volumes:
+      - ./users.txt:/data/users.txt
+
+  api:
+    build:
+      context: ./api
+    container_name: api
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      BOT_TOKEN: "8447543815:AAGkwtyTfqMGNjoYgKqOIaUtqnf-DuCCp2Y"
+    volumes:
+      - ./users.txt:/data/users.txt
