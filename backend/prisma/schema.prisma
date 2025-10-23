@@ -20,6 +20,11 @@ enum CameraStatus {
   WORKS_INTERMITTENTLY
 }
 
+enum CheckStatus {
+  GOOD
+  BAD
+}
+
 model Camera {
   id       String       @id @default(uuid())
   name     String       @unique
@@ -31,18 +36,26 @@ model Camera {
 }
 
 model Check {
-  id        String   @id @default(uuid())
+  id        String      @id @default(uuid())
   cameraId  String
-  camera    Camera   @relation(fields: [cameraId], references: [id], onDelete: Cascade)
-  timestamp DateTime @default(now())
+  camera    Camera      @relation(fields: [cameraId], references: [id], onDelete: Cascade)
+  timestamp DateTime    @default(now())
   avgRttsMs Float
   jitterMs  Float
   lossPct   Float
-  errors    String[]
+  status    CheckStatus
+  Error     Error[]
+}
+
+model Error {
+  id      String @id @default(uuid())
+  check   Check  @relation(fields: [checkId], references: [id], onDelete: Cascade)
+  checkId String
+  message String
 }
 
 model User {
   id             String @id @default(uuid())
-  tgUsername     String @unique
+  phone          String @unique
   hashedPassword String
 }

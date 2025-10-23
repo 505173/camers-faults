@@ -1,10 +1,5 @@
 import { IsEnum, IsString } from 'class-validator';
-
-enum CameraStatus {
-  WORKS = 'WORKS',
-  DOESNT_WORK = 'DOESNT_WORK',
-  WORKS_INTERMITTENTLY = 'WORKS_INTERMITTENTLY',
-}
+import { CameraStatus } from './createCamera.dto';
 
 export class UpdateCameraDto {
   @IsString()

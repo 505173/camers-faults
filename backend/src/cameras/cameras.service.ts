@@ -2,12 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateCameraDto } from './dto/createCamera.dto';
 import { UpdateCameraDto } from './dto/updateCamera.dto';
-
-enum CameraStatus {
-  WORKS = 'WORKS',
-  DOESNT_WORK = 'DOESNT_WORK',
-  WORKS_INTERMITTENTLY = 'WORKS_INTERMITTENTLY',
-}
+import { CameraStatus } from 'src/types';
 
 @Injectable()
 export class CamerasService {
@@ -65,8 +60,17 @@ export class CamerasService {
     return { success: true, message: 'Камера успешно добавлена' };
   }
 
-  async getAllCameras() {
-    const cameras = await this.prismaService.camera.findMany();
+  async getAllCameras(status?: CameraStatus) {
+    let cameras;
+    if (status) {
+      cameras = await this.prismaService.camera.findMany({
+        where: {
+          status,
+        },
+      });
+    } else {
+      cameras = await this.prismaService.camera.findMany();
+    }
 
     return { success: true, cameras };
   }
@@ -75,6 +79,16 @@ export class CamerasService {
     const camera = await this.prismaService.camera.findUnique({
       where: {
         id,
+      },
+      include: {
+        checkResults: {
+          include: {
+            Error: true,
+          },
+          orderBy: {
+            timestamp: 'desc',
+          },
+        },
       },
     });
 
@@ -126,3 +140,4 @@ export class CamerasService {
     return { success: true, message: 'Камера успешно обновлена' };
   }
 }
+export { CameraStatus };

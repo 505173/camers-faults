@@ -1,10 +1,5 @@
 import { IsEnum, IsString } from 'class-validator';
-
-enum CameraStatus {
-  WORKS = 'WORKS',
-  DOESNT_WORK = 'DOESNT_WORK',
-  WORKS_INTERMITTENTLY = 'WORKS_INTERMITTENTLY',
-}
+import { CameraStatus } from '../../cameras.types';
 
 export class CreateCameraDto {
   @IsString()
@@ -19,3 +14,5 @@ export class CreateCameraDto {
   @IsEnum(CameraStatus)
   status: CameraStatus;
 }
+export { CameraStatus };
+
