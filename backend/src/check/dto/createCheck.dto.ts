@@ -1,6 +1,6 @@
 import { IsArray, IsDate, IsNumber, IsString } from 'class-validator';
 
-export class CreateChechDto {
+export class CreateCheckDto {
   @IsString()
   cameraId: string;
 

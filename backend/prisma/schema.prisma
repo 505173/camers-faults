@@ -22,15 +22,15 @@ enum CameraStatus {
 
 model Camera {
   id       String       @id @default(uuid())
-  name     String
+  name     String       @unique
   ip       String       @unique
   location String
   status   CameraStatus
 
-  checkResults CheckResult[]
+  checkResults Check[]
 }
 
-model CheckResult {
+model Check {
   id        String   @id @default(uuid())
   cameraId  String
   camera    Camera   @relation(fields: [cameraId], references: [id], onDelete: Cascade)
