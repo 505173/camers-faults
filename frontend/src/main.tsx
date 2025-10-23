@@ -9,6 +9,7 @@ import "./normalize.css";
 import Authorization from "./pages/auth/auth";
 import Card from "./pages/card/card";
 import Check from "./pages/check/check";
+import Emul from "./pages/emul/emul";
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/check",
     element: < Check/>,
+  },
+    {
+    path: "/emule",
+    element: < Emul/>,
   },
 ]);
 createRoot(document.getElementById("root")!).render(

@@ -54,7 +54,11 @@ const CameraChecker: React.FC = () => {
   };
 
   const toCard = () => {
-    navigate("/card", { replace: true });
+    navigate("/card");
+  };
+
+  const toEmule = () => {
+    navigate("/emule");
   };
 
   const filteredCameras = cameras.filter(camera => {
@@ -69,26 +73,32 @@ const CameraChecker: React.FC = () => {
     <div className={styles.cameraTableContainer}>
       <div className={styles.cameraTableHeader}>
         <h1>Камеры</h1>
-        <div className={styles.filterContainer}>
-
-        </div>
+        <div className={styles.filterContainer}></div>
+        <button 
+          className={styles.emulatorButton}
+          onClick={toEmule}
+        >
+          Эмулятор
+        </button>
       </div>
-      
+    
+
       <div className={styles.cameraTable}>
         <div className={styles.tableHeader}>
           <div className={styles.headerCell}>Название</div>
           <div className={styles.headerCell}>IP</div>
-          <div className={styles.headerCell}>Статус: <select 
-            value={statusFilter} 
-            onChange={(e) => setStatusFilter(e.target.value)}
-            className={styles.filterSelect}
-          >
-            <option value="all">Все</option>
-            <option value="works">Работает</option>
-            <option value="not-works">Не работает</option>
-            <option value="interruptions">Работает с перебоями</option>
-          </select></div>
-
+          <div className={styles.headerCell}>Статус: 
+        <select 
+          value={statusFilter} 
+          onChange={(e) => setStatusFilter(e.target.value)}
+          className={styles.filterSelect}
+        >
+          <option value="all">Все</option>
+          <option value="works">Работает</option>
+          <option value="not-works">Не работает</option>
+          <option value="interruptions">Работает с перебоями</option>
+        </select>
+      </div>
         </div>
         
         <div className={styles.tableBody}>
